@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <Job />,
       },
       {
-        path: "/my-job",
+        path: "/my-jobs",
         element: <MyJob />,
       },
       {
@@ -42,11 +42,11 @@ const router = createBrowserRouter([
         element: <OnBoarding />,
       },
       {
-        path: "/post-job",
+        path: "/post-jobs",
         element: <PostJob />,
       },
       {
-        path: "/seved-job",
+        path: "/seved-jobs",
         element: <SevedJob />,
       },
     ],
