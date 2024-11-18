@@ -10,6 +10,7 @@ import MyJob from "./pages/my-job";
 import OnBoarding from "./pages/onboarding";
 import PostJob from "./pages/post-job";
 import SevedJob from "./pages/seved-job";
+import { ThemeProvider } from "./components/theme-provider";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 };
 
 export default App;
