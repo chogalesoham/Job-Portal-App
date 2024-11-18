@@ -11,6 +11,7 @@ import OnBoarding from "./pages/onboarding";
 import PostJob from "./pages/post-job";
 import SevedJob from "./pages/seved-job";
 import { ThemeProvider } from "./components/theme-provider";
+import Jobs from "./pages/jobs";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         element: <JobListing />,
       },
       {
+        path: "/jobs",
+        element: <Jobs />,
+      },
+      {
         path: "/job/:id",
         element: <Job />,
       },
@@ -33,7 +38,7 @@ const router = createBrowserRouter([
         element: <MyJob />,
       },
       {
-        path: "/    ",
+        path: "/onboarding",
         element: <OnBoarding />,
       },
       {
