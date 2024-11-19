@@ -41,7 +41,7 @@ const Header = () => {
               <PenBox className=" mr-2" />
               Post a Job
             </Button>
-            <Link to="post-job"></Link>
+            <Link to="post-jobs"></Link>
             <UserButton
               appearance={{
                 elements: {
