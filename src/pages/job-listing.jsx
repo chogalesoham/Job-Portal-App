@@ -1,9 +1,7 @@
-import React from "react";
-
 const JobListing = () => {
   return (
     <div>
-      <h1>JobListing</h1>
+      <h1>Job Listing</h1>
     </div>
   );
 };
