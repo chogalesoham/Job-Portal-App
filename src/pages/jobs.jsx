@@ -54,7 +54,7 @@ const Jobs = () => {
   };
 
   const clearFilters = () => {
-    setSearchQuery(" ");
+    setSearchQuery("");
     setCompany_id("");
     setLocation("");
   };
