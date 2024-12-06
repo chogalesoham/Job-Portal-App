@@ -1,4 +1,11 @@
-import { getSingleJob } from "@/api/apiJobs";
+import { getSingleJob, updateHiringStatus } from "@/api/apiJobs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import useFetch from "@/hooks/use-fetch";
 import { useUser } from "@clerk/clerk-react";
 import MDEditor from "@uiw/react-md-editor";
@@ -17,6 +24,16 @@ const Job = () => {
     error: jobError,
     fn: fnJob,
   } = useFetch(getSingleJob, { job_id: id });
+
+  const { loading: loadingHiringStatus, fn: fnHiringStatus } = useFetch(
+    updateHiringStatus,
+    { job_id: id }
+  );
+
+  const handleStatusChange = (value) => {
+    let isOpen = value === "open";
+    fnHiringStatus(isOpen).then(() => fnJob());
+  };
 
   useEffect(() => {
     if (isLoaded) {
@@ -76,6 +93,30 @@ const Job = () => {
           )}
         </div>
       </div>
+
+      {/* Hiring Status */}
+      {loadingHiringStatus && (
+        <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />
+      )}
+      {job?.recruiter_id === user?.id && (
+        <Select onValueChange={handleStatusChange}>
+          <SelectTrigger
+            className={`w-full ${
+              job?.isOpen ? " bg-green-950" : " bg-red-950"
+            }`}
+          >
+            <SelectValue
+              placeholder={`Hiring Status ${
+                job?.isOpen ? "(Open)" : "(Closed)"
+              }`}
+            />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="open">Open</SelectItem>
+            <SelectItem value="closed">Closed</SelectItem>
+          </SelectContent>
+        </Select>
+      )}
 
       {/* Job Description */}
       <div>
