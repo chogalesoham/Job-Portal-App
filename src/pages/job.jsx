@@ -1,4 +1,5 @@
 import { getSingleJob, updateHiringStatus } from "@/api/apiJobs";
+import ApplyJobDrawer from "@/components/apply-job";
 import {
   Select,
   SelectContent,
@@ -134,6 +135,16 @@ const Job = () => {
           className="bg-transparent sm:text-lg prose"
         />
       </div>
+
+      {/* Render applications */}
+      {job?.recruiter_id !== user?.id && (
+        <ApplyJobDrawer
+          job={job}
+          user={user}
+          fetchJob={fnJob}
+          applied={job?.applications?.find((ap) => ap.candidate_id === user.id)}
+        />
+      )}
     </div>
   );
 };
