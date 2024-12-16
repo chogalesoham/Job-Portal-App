@@ -7,12 +7,12 @@ import LandingPage from "./pages/landing-page";
 import JobListing from "./pages/job-listing";
 import Job from "./pages/job";
 import MyJob from "./pages/my-job";
-import OnBoarding from "./pages/onboarding";
 import PostJob from "./pages/post-job";
 import SevedJob from "./pages/seved-job";
 import { ThemeProvider } from "./components/theme-provider";
 import Jobs from "./pages/jobs";
 import ProtectedRoute from "./components/protected-route";
+import OnBoarding from "./pages/onboarding.jsx";
 
 const router = createBrowserRouter([
   {
